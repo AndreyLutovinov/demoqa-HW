@@ -15,11 +15,10 @@ import static com.codeborne.selenide.Selenide.*;
 public class PracticeFormTest {
 
     @BeforeAll
-    static void beforAll(){
+    static void beforAllsetup(){
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
 
     }
 
@@ -31,6 +30,10 @@ public class PracticeFormTest {
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
         $("#firstName").setValue("Biba");
         $("#lastName").setValue("Bibabovich");
         $("#userEmail").setValue("Biba@gmail.com");
@@ -50,7 +53,7 @@ public class PracticeFormTest {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
 
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\BSPB\\IdeaProjects\\demoqa-HW\\src\\test\\java\\tests\\resources\\Screenshot_1.png"));
+        $("#uploadPicture").uploadFromClasspath("Screenshot_1.png");
 
         $("#currentAddress").setValue("Biba, Bobowck");
 
