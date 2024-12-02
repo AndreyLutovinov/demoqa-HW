@@ -35,7 +35,7 @@ public class PracticeFormTest {
         $("#lastName").setValue("Bibabovich");
         $("#userEmail").setValue("Biba@gmail.com");
         $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("89999999999");
+        $("#userNumber").setValue("8999999999");
 
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();
@@ -47,8 +47,22 @@ public class PracticeFormTest {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFile(new File("C:\\Users\\BSPB\\IdeaProjects\\demoqa-HW\\src\\test\\java\\tests\\resources\\Screenshot_1.png"));
+        $("#currentAddress").setValue("Biba, Bobowck");
+        $("#react-select-3-input").setValue("NCR").pressEnter();
+        $("#react-select-4-input").setValue("Gurgaon").pressEnter();
+        $("#submit").click();
 
-
+        $(".modal-content").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Student Name")).shouldHave(text("Biba, Bobowck"));
+        $(".table-responsive").shouldHave(text("Student Email")).shouldHave(text("Biba@gmail.com"));
+        $(".table-responsive").shouldHave(text("Gender")).shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("Mobile")).shouldHave(text("8999999999"));
+        $(".table-responsive").shouldHave(text("Date of Birth")).shouldHave(text("30 January,1994"));
+        $(".table-responsive").shouldHave(text("Subjects")).shouldHave(text("History"));
+        $(".table-responsive").shouldHave(text("Hobbies")).shouldHave(text("Sports, Reading"));
+        $(".table-responsive").shouldHave(text("Picture")).shouldHave(text("Screenshot_1.png"));
+        $(".table-responsive").shouldHave(text("Address")).shouldHave(text("Biba, Bobowck"));
+        $(".table-responsive").shouldHave(text("State and City")).shouldHave(text("NCR Gurgaon"));
 
     }
 }
