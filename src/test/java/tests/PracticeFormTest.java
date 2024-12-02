@@ -34,6 +34,7 @@ public class PracticeFormTest {
         $("#firstName").setValue("Biba");
         $("#lastName").setValue("Bibabovich");
         $("#userEmail").setValue("Biba@gmail.com");
+
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("8999999999");
 
@@ -41,13 +42,18 @@ public class PracticeFormTest {
         $(".react-datepicker__month-select").click();
         $(".react-datepicker__year-select").selectOption("1994");
         $(".react-datepicker__month-select").selectOption("January");
+
         $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)").findBy(text("30")).click();
         $("#userForm #subjectsInput").setValue("History");
         $("#userForm .subjects-auto-complete__menu").click();
+
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
+
         $("#uploadPicture").uploadFile(new File("C:\\Users\\BSPB\\IdeaProjects\\demoqa-HW\\src\\test\\java\\tests\\resources\\Screenshot_1.png"));
+
         $("#currentAddress").setValue("Biba, Bobowck");
+
         $("#react-select-3-input").setValue("NCR").pressEnter();
         $("#react-select-4-input").setValue("Gurgaon").pressEnter();
         $("#submit").click();
