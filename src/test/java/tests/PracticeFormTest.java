@@ -17,6 +17,7 @@ public class PracticeFormTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
 
     }
 
@@ -43,8 +44,8 @@ public class PracticeFormTest {
         $(".react-datepicker__month-select").click();
         $(".react-datepicker__year-select").selectOption("1994");
         $(".react-datepicker__month-select").selectOption("January");
-
         $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)").findBy(text("30")).click();
+
         $("#userForm #subjectsInput").setValue("History");
         $("#userForm .subjects-auto-complete__menu").click();
 
